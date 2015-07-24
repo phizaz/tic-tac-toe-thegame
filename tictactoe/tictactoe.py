@@ -9,10 +9,10 @@ class TicTacToe:
         self.table = None
         self.restart()
 
-    def restart(self):
+    def restart(self, start=1):
         # start with player 1
         self.ended = False
-        self.player = 1
+        self.player = start
         self.table = [[0 for i in range(3)] for i in range(3)]
         # restart always success
         return self.table
