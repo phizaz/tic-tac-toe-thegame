@@ -85,8 +85,19 @@ class TicTacToe:
 
         diagonal_left = [self.table[i][i] for i in range(3)]
         is_winning(diagonal_left)
-
+        # short circuit
+        if winner != None:
+            return winner
         diagonal_right = [self.table[i][3-i-1] for i in range(3)]
         is_winning(diagonal_right)
+        # short circuit
+        if winner != None:
+            return winner
 
-        return winner
+        # check if all the cells are filled
+        for row in self.table:
+            for col in row:
+                if col == 0:
+                    return None
+        # it's a draw
+        return -1
